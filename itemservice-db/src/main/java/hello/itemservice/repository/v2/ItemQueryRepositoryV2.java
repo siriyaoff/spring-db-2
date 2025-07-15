@@ -29,12 +29,14 @@ public class ItemQueryRepositoryV2 {
                         likeItemName(cond.getItemName()))
                 .fetch();
     }
+
     private BooleanExpression likeItemName(String itemName) {
         if (StringUtils.hasText(itemName)) {
             return item.itemName.like("%" + itemName + "%");
         }
         return null;
     }
+
     private BooleanExpression maxPrice(Integer maxPrice) {
         if (maxPrice != null) {
             return item.price.loe(maxPrice);
